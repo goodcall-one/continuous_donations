@@ -1,0 +1,26 @@
+name: Example Integration on Pull Request
+on: 
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - closed
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Donate
+        if: github.event.pull_request.merged == true
+        id: donate
+        uses: goodcall-one/github_action@main
+        with:
+        # Enter your API variables below
+            apikey: ${{ secrets.donation_apikey }}
+            organization_id: "7C47010611E5FB5D"
+            user: ${{ github.actor }}
+            wallet_id: "884b5313-259e-4711-9552-60c5f76b427e"
+            test: "false"
+
+      - name: Response of digitalhumani.com RaaS API
+        run: |
+            echo "${{ steps.donate.outputs.response }}"
