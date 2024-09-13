@@ -2,8 +2,10 @@
 import os
 import requests
 from urllib.parse import urljoin
+import posixpath
 import json
 import sys
+import re
 
 def main():
     api_key = os.environ["INPUT_API_KEY"]
