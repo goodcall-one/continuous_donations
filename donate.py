@@ -28,9 +28,19 @@ def main():
     # Make the POST request with query parameters and headers
     r = requests.post(url, headers=headers)
 
-    # Check if the response is successful
+    # Check if the response is not successful
     if r.status_code == 400:
         print(f"Error 400: {r.text}")  # Log the detailed error message
+        sys.exit(1)
+
+    # Check if the response is not successful
+    if r.status_code == 401:
+        print(f"Error 401: {r.text}")  # Log the detailed error message
+        sys.exit(1)
+
+    # Check if the response is not successful
+    if r.status_code == 500:
+        print(f"Error 500: {r.text}")  # Log the detailed error message
         sys.exit(1)
     
     response = r.json()  # Parse the response JSON
