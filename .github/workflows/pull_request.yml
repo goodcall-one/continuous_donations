@@ -21,6 +21,6 @@ jobs:
             wallet_id: "884b5313-259e-4711-9552-60c5f76b427e"
             test: "false"
 
-      - name: Response of digitalhumani.com RaaS API
+      - name: Response of goodcall.one API
         run: |
             echo "${{ steps.donate.outputs.response }}"
