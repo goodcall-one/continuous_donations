@@ -22,18 +22,27 @@ def main():
     }
     headers = {"x-api-key": api_key}
 
-    url = "https://www.goodcall.one/api/v1/donate"
+    # Construct URL with query parameters
+    url = f"https://www.goodcall.one/api/v1/donate?organization_id={organization_id}&wallet_id={wallet_id}&user={user}&test={test}"
 
-    r = requests.post(url, json=body_para, headers=headers)
-    response = json.loads(r.text)
+    # Make the POST request with query parameters and headers
+    r = requests.post(url, headers=headers)
+
+    # Check if the response is successful
+    if r.status_code == 400:
+        print(f"Error 400: {r.text}")  # Log the detailed error message
+        sys.exit(1)
+    
+    response = r.json()  # Parse the response JSON
 
     if r.status_code == requests.codes.ok:
         print("Request successful")
     else:
-        print("Something went wrong. \n Your error code is: " + str(r.status_code))
+        print(f"Something went wrong. \n Your error code is: {r.status_code}")
         sys.exit(1)
 
-    print(f"::set-output name=response::{response}")
+    # Output the response
+    print(f"::set-output name=response::{json.dumps(response)}")
 
 if __name__ == "__main__":
     main()
