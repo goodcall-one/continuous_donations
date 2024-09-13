@@ -8,7 +8,7 @@ import sys
 import re
 
 def main():
-    api_key = os.environ["INPUT_API_KEY"]
+    api_key = os.environ["INPUT_APIKEY"]
     organization_id = os.environ["INPUT_ORGANIZATION_ID"]
     wallet_id = os.environ["INPUT_WALLET_ID"]
     user = os.environ["INPUT_USER"]
