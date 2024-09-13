@@ -1,0 +1,29 @@
+name: "github_action"
+description: "Donates within your development workflow with goodcall.one"
+author: "goodcall-one"
+branding:
+  icon: 'award'  
+  color: 'green'
+
+inputs:
+  apikey:
+    description: "The API key obtained from goodcall.one. Example of an API key: EoMj_Ni5Hf6gFXjFwiRxr2yXPVREFUo1--97jnjS6TXRxH4SXxQRgw"
+  organization_id:
+    description: "Id of your organization. Example of an Organization Id: 7C47010642E5FB5D"
+    required: true
+  user:
+    description: "End user by whom the donation was made"
+    default: ${{ github.actor }}
+    required: true
+  wallet_id:
+    description: "Id of the Wallet that has a project attached for which you want to make a donation. Example of a Wallet Id: 884b5313-259e-4711-9552-60c5f76b427e"
+    required: true
+  test:
+    description: "true for testing the credentials"
+    default: "false"
+outputs:
+  response:
+    description: "JSON response of the goodcall.one API"
+runs:
+  using: "docker"
+  image: "Dockerfile"
