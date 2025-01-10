@@ -1,5 +1,5 @@
-# Do good while being awesome Automate impact
-**Integrate donations seamlessly into your GitHub workflows** 
+# Do good while being awesome
+**Automate impact — Integrate donations seamlessly into your GitHub workflows** 
 
 [<img src="logo.png" align="right" width="250">](https://github.com/goodcall-one/github_action)
 We provide a GitHub Action for donating to handpicked and verified projects within your development workflow using our own API [Goodcall.one](https://www.goodcall.one/). 
